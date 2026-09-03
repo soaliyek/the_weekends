@@ -19,3 +19,44 @@ fix(package): description
 ...
 
 ## Git
+
+
+## Architecture
+night-life-app/
+├── apps/
+│   ├── api/                   # Express.js API Server
+│   │   ├── src/
+│   │   │   ├── controllers/
+│   │   │   ├── middleware/
+│   │   │   ├── routes/
+│   │   │   ├── services/
+│   │   │   └── index.ts
+│   │   ├── Dockerfile
+│   │   └── package.json
+│   ├── web/                   # Next.js Application
+│   │   ├── Dockerfile
+│   │   └── package.json
+│   └── worker/                # Background Worker & Scraper (BullMQ)
+│       ├── src/
+│       │   ├── jobs/
+│       │   ├── scrapers/
+│       │   └── index.ts
+│       ├── Dockerfile
+│       └── package.json
+├── packages/
+│   ├── config/                # Shared Environment & App Settings
+│   │   ├── index.ts
+│   │   └── package.json
+│   ├── database/              # Shared Prisma Client & PostGIS Schema
+│   │   ├── prisma/
+│   │   │   └── schema.prisma
+│   │   ├── index.ts
+│   │   └── package.json
+│   └── types/                 # Shared TypeScript Interfaces (DTOs)
+│       ├── src/
+│       │   └── index.ts
+│       └── package.json
+├── docker-compose.yml         # Container Orchestration (Postgres + Redis)
+├── package.json               # Root Workspace Config
+├── turbo.json                 # Turborepo Task Pipeline Config
+└── .env.example
