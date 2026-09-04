@@ -1,27 +1,35 @@
 # Procedure
 
-## Runing The Apps
+## 1. Runing The Apps
 - npm run build: Build all apps and packages
 - npm run dev: Develop all apps and packages
 - npm run lint: Lint all apps and packages
 
-## Banching
+## 2. Banching
 setup/THEWEEKENDS-001-monorepo
 chore/THEWEEKENDS-001
 infra/THEWEEKENDS-001
 docum/THEWEEKENDS-001
 featu/THEWEEKENDS-001
 
-## Commit Messages
+## 3. Commit Messages
 build(docker): description
 featu(auth): description
 fix(package): description
+docum(readme): description
 ...
 
-## Git
+## 4.Git
+
+### a. Rebasing
+git checkout parent_branch
+    `Fix and commit`
+git checkout current_branch
+git rebase parent_branch
 
 
-## Architecture
+
+## 5. Architecture
 night-life-app/
 ├── apps/
 │   ├── api/                   # Express.js API Server
