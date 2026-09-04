@@ -19,7 +19,7 @@ fix(package): description
 docum(readme): description
 ...
 
-## 4.Git
+## 4. Git
 
 ### a. Rebasing
 git checkout parent_branch
@@ -27,9 +27,11 @@ git checkout parent_branch
 git checkout current_branch
 git rebase parent_branch
 
+## 5. Docker
+docker compose up --build
+docker compose down
 
-
-## 5. Architecture
+## 6. Architecture
 night-life-app/
 ├── apps/
 │   ├── api/                   # Express.js API Server

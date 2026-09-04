@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+
+  # Next.js Web Application (frontend)
+  web:
+    container_name: the_weekends_web
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://the_weekends:password@postgres:5432/the_weekends
+    depends_on:
+      - postgres
+      - redis
+
+  # PostgreSQL Database
+  postgres:
+    container_name: the_weekends_postgres
+    image: postgis/postgis:15-3.3
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=the_weekends
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=the_weekends_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # Redis Cache & Queue
+  redis:
+    container_name: the_weekends_redis
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:
