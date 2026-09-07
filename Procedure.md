@@ -11,6 +11,7 @@ chore/THEWEEKENDS-001
 infra/THEWEEKENDS-001
 docum/THEWEEKENDS-001
 featu/THEWEEKENDS-001
+minim/THEWEEKENDS-001 (minimal code to test setup & infrastructure)
 
 ## 3. Commit Messages
 build(docker): description

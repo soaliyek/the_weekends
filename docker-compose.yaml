@@ -17,6 +17,21 @@ services:
       - postgres
       - redis
 
+  # API Backend App
+  api:
+    container_name: the_weekends_api
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://the_weekends:password@postgres:5432/the_weekends
+    depends_on:
+      - postgres
+      - redis
+
   # PostgreSQL Database
   postgres:
     container_name: the_weekends_postgres
