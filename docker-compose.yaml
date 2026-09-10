@@ -28,6 +28,7 @@ services:
     environment:
       - NODE_ENV=production
       - DATABASE_URL=postgresql://the_weekends:password@postgres:5432/the_weekends
+      - PRISMA_CLI_BINARY_TARGET=linux-musl
     depends_on:
       - postgres
       - redis

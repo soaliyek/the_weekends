@@ -36,6 +36,7 @@ git rebase parent_branch
 docker compose up --build
 docker compose down
 docker compose up -d --build api
+docker compose build --no-cache api
 
 ## 6. Database: PorstgreSQL + postGis & Prisma ORM
 - Create schema.prisma + package.json

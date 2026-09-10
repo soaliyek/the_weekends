@@ -1,6 +1,6 @@
 # Prune the workspace to only include the api/ app and its dependencies
 FROM node:24-alpine AS builder
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 RUN npm install -g turbo@latest
 COPY . .
@@ -9,7 +9,7 @@ RUN turbo prune --scope=theweekends_api --docker
 
 # Install the dependencies for the api/ app
 FROM node:24-alpine AS installer
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 
 COPY --from=builder /app/out/json/ .
