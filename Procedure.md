@@ -37,6 +37,9 @@ docker compose up --build
 docker compose down
 docker compose up -d --build api
 docker compose build --no-cache api
+Open Terminal: docker exec -it container_name_or_id sh
+Hot Reload: docker compose up -d --build --no-deps --force-recreate service_name
+
 
 ## 6. Database: PorstgreSQL + postGis & Prisma ORM
 - Create schema.prisma + package.json

@@ -12,7 +12,7 @@ services:
       - "5000:5000"
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=postgresql://the_weekends:password@postgres:5432/the_weekends
+      - DATABASE_URL=postgresql://the_weekends:password@postgres:5432/the_weekends_db
     depends_on:
       - postgres
       - redis
@@ -27,7 +27,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=postgresql://the_weekends:password@postgres:5432/the_weekends
+      - DATABASE_URL=postgresql://the_weekends:password@postgres:5432/the_weekends_db
       - PRISMA_CLI_BINARY_TARGET=linux-musl
     depends_on:
       - postgres
