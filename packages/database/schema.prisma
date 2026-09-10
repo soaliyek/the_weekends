@@ -1,0 +1,16 @@
+datasource db {
+    provider    = "postgresql"
+    url         = env("DATABASE_URL")
+    extensions  = [postgis]
+}
+
+generator client {
+    provider        = "prisma-client-js"
+    previewFeatures = ["postgresqlExtensions"]
+}
+
+Model User {
+    Id      String     @id @default(uuid())
+    Email   String     @unique
+    createdAt DateTime @default(now())
+}

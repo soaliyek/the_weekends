@@ -5,6 +5,7 @@
  */
 
 import express, { Application } from 'express';
+import { db } from '@the_weekends/database'
 
 const app: Application = express();
 const prompt: String = "theweekends@api: ";
@@ -29,6 +30,24 @@ app.get('/', (req, res) => {
         status: 'ok',
         message: `${prompt}Congratulations! You have reached THEWEEKENDS API server...`
     });
+});
+
+// Count
+app.get('/count', async (req, res) => {
+    try {
+        const userCount = await db.user.count();
+
+        res.json({
+            status: 'ok',
+            message: `${prompt}Congratulations! You have reached THEWEEKENDS API server...`,
+            data: { userCount }
+        });
+    } catch (error) {
+        res.status(500).json({
+            status: "error",
+            message: "Database Connection failed!"
+        });
+    }
 });
 
 // Export

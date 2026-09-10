@@ -1,5 +1,9 @@
 # Procedure
 
+## 0. Creating Turborepo nomorepo
+Create a New project: `npx create-turbo@latest myapp`
+Create on an existing repo: `npx create-turbo@latest .`
+
 ## 1. Runing The Apps
 - npm run build: Build all apps and packages
 - npm run dev: Develop all apps and packages
@@ -31,8 +35,16 @@ git rebase parent_branch
 ## 5. Docker
 docker compose up --build
 docker compose down
+docker compose up -d --build api
 
-## 6. Architecture
+## 6. Database: PorstgreSQL + postGis & Prisma ORM
+- Create schema.prisma + package.json
+- setup package.json
+- npm install
+- npx prisma db push
+
+
+## 7. Architecture
 night-life-app/
 ├── apps/
 │   ├── api/                   # Express.js API Server
@@ -71,3 +83,22 @@ night-life-app/
 ├── package.json               # Root Workspace Config
 ├── turbo.json                 # Turborepo Task Pipeline Config
 └── .env.example
+
+## 8. Notes
+Spaghetti Monolith
+- Just like this one. Hahahah
+
+Modular Monolith
+- Independent modules
+- Modules communicate via APIs
+- Each module owns its own exclusive tables
+- All while staying a single unit
+Can transition by slicing most complex modules into services
+
+Microservices
+- Different codebases
+- Services communicate via network (HTTP/gRPC)
+- Separate databases
+- Each service is deployed separately
+
+Component-Based/Fererated Monolith can decouple a monolith

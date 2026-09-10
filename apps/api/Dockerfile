@@ -18,18 +18,21 @@ RUN npm ci
 
 COPY --from=builder /app/out/full/ .
 
+RUN npx prisma generate --schema=packages/database/schema.prisma
 
 # Run the api/ app in production mode
 FROM node:24-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
-COPY --from=installer /app/node_modules ./node_modules
-COPY --from=installer /app/apps/api ./apps/api
+#COPY --from=installer /app/node_modules ./node_modules
+#COPY --from=installer /app/apps/api ./apps/api
+COPY --from=installer app/ .
 
 EXPOSE 3000
 
 ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
 
-CMD ["node_modules/.bin/tsx", "apps/api/src/server.ts"]
+#CMD ["node_modules/.bin/tsx", "apps/api/src/server.ts"]
+CMD ["npx", "tsx", "apps/api/src/server.ts"]

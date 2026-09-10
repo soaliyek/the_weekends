@@ -11,7 +11,8 @@
     },
     "dependencies": {
         "express": "^4.21.2",
-        "tsx": "^4.23.13"
+        "tsx": "^4.23.13",
+        "@the_weekends/database": "0.0.0"
     },
     "devDependencies": {
         "@types/express": "^5.0.6",
