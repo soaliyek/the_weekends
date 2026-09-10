@@ -22,6 +22,7 @@ RUN npx prisma generate --schema=packages/database/schema.prisma
 
 # Run the api/ app in production mode
 FROM node:24-alpine AS runner
+RUN ln -s /usr/lib/libssl.so.3 /lib/libssl.so.3
 WORKDIR /app
 
 ENV NODE_ENV production
