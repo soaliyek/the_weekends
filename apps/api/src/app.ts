@@ -8,7 +8,7 @@ import express, { Application } from 'express';
 import { db } from '@the_weekends/database'
 
 const app: Application = express();
-const prompt: String = "theweekends@api: ";
+const prompt: String = "theweekends@api:";
 
 // Middleware configuration
 app.use(express.json());
@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
     res.json({
         status: 'ok',
-        message: `${prompt}Congratulations! You have reached THEWEEKENDS API server...`
+        message: `${prompt} Congratulations! You have reached THEWEEKENDS API server...`
     });
 });
 
@@ -39,13 +39,13 @@ app.get('/count', async (req, res) => {
 
         res.json({
             status: 'ok',
-            message: `${prompt}Congratulations! You have reached THEWEEKENDS API server...`,
+            message: `${prompt} User Count: `,
             data: { userCount }
         });
     } catch (error) {
         res.status(500).json({
             status: "error",
-            message: "Database Connection failed!"
+            message: "Database Connection Failed!"
         });
     }
 });
