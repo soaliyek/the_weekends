@@ -27,7 +27,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=postgresql://the_weekends:password@postgres:5432/the_weekends_db
+      - DATABASE_URL=${DATABASE_URL}
       - PRISMA_CLI_BINARY_TARGET=linux-musl
     depends_on:
       - postgres
@@ -40,9 +40,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=the_weekends
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=the_weekends_db
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - postgres_data:/var/lib/postgresql/data
 

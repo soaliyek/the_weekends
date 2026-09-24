@@ -46,7 +46,13 @@ Hot Reload: docker compose up -d --build --no-deps --force-recreate service_name
 - setup package.json
 - npm install
 - npx prisma db push
+Or from root
+- npx prisma db push --schema=packages/database/schema.prisma
 
+
+## . Environment
+`dir env:`
+`Remove-Item env:\DATABASE_URL`
 
 ## 7. Architecture
 night-life-app/
